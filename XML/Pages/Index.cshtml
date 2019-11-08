@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var hospitals = (QuickType.Hospital[]) ViewData["Hospital"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <hr/>
+    <table border="1" width="90%">
+        <tr>
+            <th>health_center</th>
+            <th>health_center_code</th>
+            <th>address</th>
+            <th>street_name</th>
+            <th>sufx</th>
+            <th>city</th>
+            <th>state</th>
+            <th>zipcode</th>
+            <th>phone</th>
+            <th>care_type</th>
+            <th>monday_open</th>
+            <th>monday_close</th>
+         </tr>
+        @{
+            foreach (QuickType.Hospital hospital in hospitals)
+            {
+                <tr>
+                    <td>@hospital.City</td>
+                    <td>@hospital.Address</td>
+                    <td>@hospital.Adult</td>
+                    <td>@hospital.BehavioralHealth</td>
+                    <td>@hospital.CareType</td>
+                    <td>@hospital.CenterDescription</td>
+                    <td>@hospital.DiabeticEducation</td>
+                    <td>@hospital.HealthCenter</td>
+                    <td>@hospital.Immunizations</td>
+                </tr>
+            }
+        }
+     </table>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
